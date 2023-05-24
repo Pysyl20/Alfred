@@ -1,7 +1,8 @@
-flask
-Werkzeug==2.0.3
+Flask
+Werkzeug
 asyncio
-youtube-dl==2021.4.26
-BeautifulSoup
+youtube-dl
+beautifulsoup4
 SpeechRecognition
 pyttsx3
+translate

@@ -1,8 +1,9 @@
+import json
 import logging
 import os
 import sys
 import pyttsx3
-import development as development
+
 import youtube_dl
 from core import coreIo, titleSong
 from flask import Flask, request, send_file, render_template
@@ -48,6 +49,7 @@ def download_video():
     path = ""
     youtube_url = request.form['URL']
     try:
+        
         verison = request.form[
             'choix']  # je renomme la musique au nom de la musique et de l'app car un peu de pub ca mange pas de pain
         name = titleSong.titleDownload(youtube_url)  # je declare les options de telechargement
@@ -112,7 +114,7 @@ def toto():
     randomKey = request.form['password']
     newKey = {"name": "site", "identifiant": "identifiant", "key": "randomKey", "datecreate": str(datetime.now())}
 
-    if not saveKey(json.dumps(newKey)):
+    if not Pass.saveKey(json.dumps(newKey)):
         return render_template('keygenerator/randomConfirme.html', message='Erreur password non enregisté' )
     return render_template('keygenerator/randomConfirme.html', message='nouveau password enregisté', result=str(newKey['key']), id=str(identifiant), site=str(site))
 
